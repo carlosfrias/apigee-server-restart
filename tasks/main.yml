@@ -12,5 +12,5 @@
   wait_for:
     host: '{{ ansible_host }}'
     state: started
-    delay: "{{ start_check_delay | d(5) }}"
+    delay: "{{ start_check_delay | d(10) }}"
     timeout: '{{ server_restart_timeout | d(30) }}'
