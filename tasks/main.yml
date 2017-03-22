@@ -12,7 +12,8 @@
   delegate_to: 127.0.0.1
   wait_for:
     host: '{{ ansible_host }}'
-    state: started delay={{ start_check_delay | d(5) }}
+    state: started
+    delay: "{{ start_check_delay | d(5) }}"
     timeout: '{{ server_restart_timeout | d(30) }}'
 
 - name: Server usually needs a little more time ...
@@ -20,4 +21,5 @@
   delegate_to: 127.0.0.1
   wait_for:
     host: '{{ ansible_host }}'
-    state: started delay={{ start_check_delay | d(5) }}
+    state: started
+    delay: "{{ start_check_delay | d(5) }}"
