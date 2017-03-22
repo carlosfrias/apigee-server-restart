@@ -13,4 +13,4 @@
     host: '{{ ansible_host }}'
     state: started
     delay: "{{ start_check_delay | d(15) }}"
-    timeout: '{{ server_restart_timeout | d(30) }}'
+    timeout: '{{ server_restart_timeout | d(45) }}'
