@@ -1,2 +1,3 @@
 ---
 # defaults file for /usr/local/google/home/friasc/apigee-workspace/apigee-opdk-role-workspace/apigee-server-restart
+ignore_restart: false
