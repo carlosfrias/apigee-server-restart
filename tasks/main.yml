@@ -16,4 +16,8 @@
       delay: "{{ start_check_delay | d(15) }}"
       timeout: '{{ server_restart_timeout | d(45) }}'
 
+  - name: Report server started
+    debug:
+      msg: "Server is now running."
+
   when: not ignore_restart
