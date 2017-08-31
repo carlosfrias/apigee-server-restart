@@ -8,7 +8,12 @@
 
 - name: Waiting for server to complete restarting
   become: no
-  local_action: wait_for host='{{ ansible_host }}' state=started delay="{{ start_check_delay | d(15) }}" timeout='{{ server_restart_timeout | d(45) }}'
+  delegate_to: 127.0.0.1
+  wait_for:
+    host: '{{ ansible_host }}'
+    port: 22
+    delay: "{{ server_restart_delay | d(15) }}"
+    timeout: '{{ server_restart_timeout | d(60) }}'
 
 - name: Report server started
   debug:
