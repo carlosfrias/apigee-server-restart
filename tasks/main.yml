@@ -10,7 +10,7 @@
   become: no
   local_action: wait_for
   args:
-    host: '{{ ansible_host }}'
+    host: '{{ inventory_hostname }}'
     port: 22
     state: started
     delay: "{{ server_restart_delay | d(15) }}"
