@@ -14,7 +14,7 @@
     port: 22
     state: started
     delay: "{{ server_restart_delay | d(15) }}"
-    timeout: '{{ server_restart_timeout | d(90) }}'
+    timeout: '{{ server_restart_timeout | d(120) }}'
 
 - name: Provide server processes with a few more seconds...
   become: no
