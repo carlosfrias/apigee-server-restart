@@ -21,7 +21,7 @@
   local_action: pause
   args:
     seconds: "{{ server_restart_extra_pause | d(5) }}"
-    prompt: "Providing any remaining server startup processes with 5 more seconds..."
+    prompt: "Providing any remaining server startup processes with {{ server_restart_extra_pause | d(5) }} more seconds..."
 
 - name: Report server started
   debug:
