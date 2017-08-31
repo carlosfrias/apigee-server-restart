@@ -8,9 +8,9 @@
 
 - name: Waiting for server to complete restarting
   become: no
-  delegate_to: 127.0.0.1
-  wait_for:
-    host: '{{ ansible_host }}'
+  local_action: wait_for
+  args:
+    host: '{{ inventory_hostname }}'
     port: 22
     state: started
     delay: "{{ server_restart_delay | d(15) }}"
