@@ -14,8 +14,15 @@
     port: 22
     state: started
     delay: "{{ server_restart_delay | d(15) }}"
-    timeout: '{{ server_restart_timeout | d(60) }}'
+    timeout: '{{ server_restart_timeout | d(90) }}'
+
+- name: Provide server processes with a few more seconds...
+  become: no
+  local_action: pause
+  args:
+    seconds: 5
+    prompt: "Providing any remaining server startup processes with 5 more seconds..."
 
 - name: Report server started
   debug:
-    msg: "Server is now running."
+    msg: "Server should now be running."
