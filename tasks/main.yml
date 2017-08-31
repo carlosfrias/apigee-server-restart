@@ -20,7 +20,7 @@
   become: no
   local_action: pause
   args:
-    seconds: 5
+    seconds: "{{ server_restart_extra_pause | d(5) }}"
     prompt: "Providing any remaining server startup processes with 5 more seconds..."
 
 - name: Report server started
