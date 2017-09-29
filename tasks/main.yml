@@ -1,28 +1,23 @@
 ---
 # tasks file for /usr/local/google/home/friasc/apigee-workspace/apigee-opdk-role-workspace/apigee-server-restart
-- name: Restarting node now
-  become: yes
-  shell: sleep 2 && reboot now
-  async: 1
-  poll: 0
+- block:
+  - name: Restarting node now
+    become: yes
+    shell: '/usr/sbin/reboot now'
+    async: 0
+    poll: 0
 
-- name: Waiting for server to complete restarting
-  become: no
-  local_action: wait_for
-  args:
-    host: '{{ inventory_hostname }}'
-    port: 22
-    state: started
-    delay: "{{ server_restart_delay | d(15) }}"
-    timeout: '{{ server_restart_timeout | d(120) }}'
+  - name: Waiting for server to complete restarting
+    become: no
+    delegate_to: 127.0.0.1
+    wait_for:
+      host: '{{ ansible_host }}'
+      state: started
+      delay: "{{ start_check_delay | d(15) }}"
+      timeout: '{{ server_restart_timeout | d(45) }}'
 
-- name: Provide server processes with a few more seconds...
-  become: no
-  local_action: pause
-  args:
-    seconds: "{{ server_restart_extra_pause | d(5) }}"
-    prompt: "Providing any remaining server startup processes with {{ server_restart_extra_pause | d(5) }} more seconds..."
+  - name: Report server started
+    debug:
+      msg: "Server is now running."
 
-- name: Report server started
-  debug:
-    msg: "Server should now be running."
+  when: not ignore_restart
