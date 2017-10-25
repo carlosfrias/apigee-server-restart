@@ -1,5 +1,4 @@
 ---
-- hosts: localhost
-  remote_user: root
+- hosts: influxdb
   roles:
-    - /usr/local/google/home/friasc/apigee-workspace/apigee-opdk-role-workspace/apigee-server-restart
+    - apigee-server-restart
