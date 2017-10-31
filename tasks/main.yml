@@ -2,7 +2,7 @@
 # tasks file for /usr/local/google/home/friasc/apigee-workspace/apigee-opdk-role-workspace/apigee-server-restart
 - name: Restarting node now
   become: yes
-  shell: sleep 1 && shutdown -r "Ansible triggered reboot for Apigee configuration or maintenance"
+  shell: sleep 1 && reboot now
   async: 1
   poll: 0
 
