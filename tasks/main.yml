@@ -2,7 +2,7 @@
 # tasks file for /usr/local/google/home/friasc/apigee-workspace/apigee-opdk-role-workspace/apigee-server-restart
 - name: Restarting node now
   become: yes
-  shell: sleep 1 && reboot now
+  shell: sleep 2 && reboot now
   async: 1
   poll: 0
 
