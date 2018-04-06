@@ -6,7 +6,7 @@ This role restarts a server. This is typically useful after making changes that 
 Requirements
 ------------
 
-N/A
+This role requires elevated system privilege.
 
 Role Variables
 --------------
@@ -34,15 +34,22 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+Apache 2.0
 
 Author Information
 ------------------
 
 Carlos Frias
+
+
 <!-- BEGIN Google Required Disclaimer -->
 
 # Not Google Product Clause
 
 This is not an officially supported Google product.
 <!-- END Google Required Disclaimer -->
+<!-- BEGIN Google How To Contribute -->
+# How to Contribute
+
+We'd love to accept your patches and contributions to this project. Please review our [guidelines](CONTRIBUTION.md).
+<!-- END Google How To Contribute -->
